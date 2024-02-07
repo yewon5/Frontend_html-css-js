@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 문자열 입력 -->
+    <form>
+        <input type="text" size="30" maxlength="15" disabled="disabled"><br><br>
+        <input type="text" readonly="readonly"><br><br>
+        <input type="text" value="아이디 입력" /><br><br>
+        <input type="text" placeholder="아이디 입력" /><br><br>
+        <input type="password" /><br><br>
+        <textarea rows="3" cols="40"></textarea><br><br>
+        <hr/>
+
+    <!-- 선택에 따른 입력 -->
+    
+        <input type="radio" name="gender" />남자 <input type="radio" name="gender" />여자
+        <br><br>
+        <input type="checkbox" name="hobby" id="c1"><label for="c1">낚시</label><br>
+        <input type="checkbox" name="hobby"><label>여행</label><br>
+        <input type="checkbox" name="hobby"><label>독서</label><br>
+        <input type="checkbox" name="hobby"><label>운동</label><br><br>
+    
+        <select>
+            <option>서울</option>
+            <option>인천</option>
+            <option>수원</option>
+            <option selected="selected">용인</option>
+        </select>
+        <br><br>
+
+        <select size="4" multiple="multiple">
+            <option>서울</option>
+            <option>인천</option>
+            <option>수원</option>
+            <option selected="selected">용인</option>
+        </select>
+        <br><br>
+        <hr/>
+
+        <!-- 버튼 -->
+        <input type="button" value="기본 버튼" /><br>
+        <input type="image" src="./images/duke_thumbsup.gif" /><br>
+        <input type="submit" value="서버로 전송"/><br>
+        <input type="reset" value="취소"/><br>
+        <button>버튼</button>
+    </form>
+    <br><br>
+    <hr/>
+
+    <!-- 기타 -->
+    <input type="file" /><br>
+    <input type="hidden" name="tel" value="111-1111"/>
+</body>
+</html>

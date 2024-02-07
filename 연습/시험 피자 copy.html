@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+.size span{
+    display: inline-block;
+    position: relative;
+    top: -20px;
+    left: 14px;
+    padding: 10px;
+    background: white;
+}
+
+</style>
+<body>
+
+<from>
+    <span>고객명 : </span><input type="text" size="15" maxlength="15" ><br><br>
+    <span>전화번호 : </span><input type="text" size="15" maxlength="15" ><br><br>
+    <span>E-mail : </span><input type="text" size="15" maxlength="15" ><br><br>
+
+    
+    <span>피자 선택 : </span>
+    <select >
+        <option selected="selected">피자를 선택하세요.</option>
+        <option>치즈 퐁듀 파이어 미트</option>
+        <option>블록버스터4</option>
+        <option>글로벌 레전드4</option>
+        <option>블랙앵거스 스테이크</option>
+        <option>베스트 콰트로</option>
+        <option>블랙타이거 슈림프</option>
+    </select>
+    <br><br>
+
+<div class="size" style="border: 1px solid;">
+    <span>피자 사이즈</span> <br><br>
+            <input type="radio" name="사이즈" />Small<br> <br>
+            <input type="radio" name="사이즈" />Medium<br><br>
+            <input type="radio" name="사이즈" />Large<br><br>
+    <br>
+    
+</div>
+<br> <br>
+<div class="size" style="border: 1px solid;">
+    <span>토핑 선택</span> <br><br>
+            <input type="checkbox" name="토핑" />베이컨<br> <br>
+            <input type="checkbox" name="토핑" />치즈<br><br>
+            <input type="checkbox" name="토핑" />양파<br><br>
+            <input type="checkbox" name="토핑" />버섯<br><br>
+    <br>
+</div>
+<br> 
+    <span>희망 배송 시간 : </span>
+    <input type="time" /><br>
+<br>
+
+    <span>배송 요청 사항</span>
+    <textarea rows="4" cols="20"></textarea><br><br>
+    <input type="button" value="주문 하기" /><br>
+
+    <!-- 참고사이트 https://url.kr/m4nqp9 -->
+</body>
+</html>

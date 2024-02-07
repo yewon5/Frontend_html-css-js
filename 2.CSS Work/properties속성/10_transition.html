@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 100px;
+        }
+
+        .container {
+            width: 200px; height: 100px;
+            background-color: royalblue;
+            /* perspective: 500px; */
+        }
+
+        .container .item {
+            width: 100px; height: 100px;
+            background-color: orange;
+
+
+        /******* 이동 *******/
+        /* transform: translate(40px, 40px); */
+        /* transform: translateX(40px); */
+
+        /******* 크기 *******/
+        /* transform: scale(0.7); */
+
+        /******* 회전 *******/
+        /* transform: rotate(45deg); */
+        /* transform: perspective(500px) rotateX(45deg) rotateY(45deg); */
+        
+        /******* 기울임 *******/
+        /* transform: skew(-45deg); */
+
+        /* transform: perspective(500px) rotateY(45deg) */
+        /* transform: rotateY(45deg); */
+
+        transform: rotateY(180deg);
+        backface-visibility: visible;
+
+         
+    
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">AB</div>
+    </div>
+</body>
+</html>

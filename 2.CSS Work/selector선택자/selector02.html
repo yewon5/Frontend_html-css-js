@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 일치 선택자 */
+        /* span.orange {color: orange;} */
+
+        /* 자식 선택자 */
+        /* ul > .orange {color: orange;} */
+
+        /* 하위 선택자 */
+        /* div .orange {color: orange;} */
+
+        /* 인접 형제 선택자 망고만 선택*/
+        .orange+li {color: orange;}
+
+        /* 일반 형제 선택자 망고 수박 선택*/
+        .orange~li {color: red;}
+
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>딸기</li>
+            <li>사과</li>
+            <li class="orange">오렌지</li>
+            <li>망고</li>
+            <li>수박</li>
+        </ul>
+        <div>당근</div>
+        <div>토마토</div>
+        <span class="orange">오렌지</span>
+    </div>
+    <span class="orange">오렌지</span>
+</body>
+</html>

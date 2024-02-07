@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+/*
+        function fnLoad(){
+            let p = document.getElementById("first");
+            console.log(p.textContent);
+
+//            let p2 = document.getElementById("w3-link");
+//            console.log(p2.textContent);
+
+            let p3 = document.getElementById("second");
+            console.log(p3.textContent);
+        }
+*/
+        function fnLoad() {
+
+        // 특정 태그의 모든 요소의 텍스트를 콘솔에 출력하는 함수
+        function getTextByTag(tagName) {
+            let elements = document.getElementsByTagName(tagName);
+            for (let i = 0; i < elements.length; i++) {
+                console.log(elements[i].textContent);
+            }
+        }
+        
+        // 결과 출력
+        getTextByTag("p");
+        }
+
+    </script>
+</head>
+<body onload="fnLoad();">
+    <div>
+        <p class="inner-text first-item" id="first">
+            Happy Week
+            <a href="https://chat.netsong7.net" id="chat-link">netsong7</a>
+        </p>
+        <p class="inner-text second-item">
+            Happy Programming
+            <a href="https://www.w3schools.com" id="w3-link">W3schools</a>
+        </p>
+    </div>
+    <p class="outer-text first-item" id="second">
+        <b>
+            Programming is funny
+        </b>
+    </p>
+    <p class="outer-text">
+        <b>
+            All or Nothing!
+        </b>
+    </p>
+</body>
+</html>

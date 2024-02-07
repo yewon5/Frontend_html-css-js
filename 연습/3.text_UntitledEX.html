@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fnLoad() {
+            // 모든 태그의 텍스트를 콘솔에 출력하는 함수
+            function getAllText() {
+                let allElements = document.body.getElementsByTagName("*");
+                for (let i = 0; i < allElements.length; i++) {
+                    console.log(allElements[i].textContent);
+                }
+            }
+
+            // 결과 출력
+            getAllText();
+        }
+
+/*
+            let span = document.getElementById("a");
+
+            console.log(span.firstChild.nodeValue); // aa
+ 
+            let body = document.documentElement;
+            let p = document.getElementById("first");
+        
+
+            else {
+            console.log("Element with id " + ElementId + " not found.");
+
+
+        let span = document.getElementById("first");
+        console.log(span.firstChild.nodeValue); // aa
+        }
+*/
+
+
+    </script>
+</head>
+<body onload="fnLoad();">
+    <span id="a" name="span1">aa</span>
+    <p>
+        <b>진하게</b>test<span id="b" name="span2">b입니다.</span>
+    </p>
+    <div>
+        <p>p</p> <span id="'c" name="span3"></span>
+    </div>
+</body>
+</html>

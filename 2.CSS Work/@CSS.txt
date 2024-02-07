@@ -1,0 +1,329 @@
+CSS(Cascading Style Sheet)
+==========================
+1. 개요
+(1) 버전
+    css1.x -> css2.x -> css3.x -> css4.x
+
+(2) 목적
+    1) 디자인(HTML 등)의 효과적인 관리(유지보수 등)
+    2) 웹 표준화(크로스 브라우징)
+
+2. 사용 방법
+(1) External Style
+    - 별도의 .css파일을 만들어서 호출하여 사용하는 방식
+(2) Inline Style
+    - 태그 안에서 직접 사용하는 방식
+    - style 이라는 속성을 사용
+    <h1 style="color: brown; font-size: 20pt; font-family: 궁서;">
+(3) Internal Style
+    - 하나의 페이지(html)에 단 한번만 정의함으로써 같은 페이지내에서는 동일한 디자인을 재사용함
+    <head>
+        <style>
+            선택자 {속성:값; 속성;값}
+        </style>
+    </head>
+
+3. 문법
+(1) Selector 선택자 {속성:값; 속성;값}
+(2) Selector
+    1) 기본 선택자 ★
+        a) * : 전체 선택자(Universal Selector) ★
+            - 모든 요소 선택
+        b) Type Selector : 태그 선택자
+            - 태그 이름으로  선택
+        c) Class Selector
+            - HTML의 class="" 속성의 값으로 선택
+            - 선택자 앞에 . 마침표 표시
+        d) ID Selector
+            - HTML의 ID="" 속성의 값으로 선택
+            - 선택자 앞에 # 샵 표시
+                
+    2) 복합 선택자 : 기본 선택자 4개를 조합해서 사용하는 선택자 ★
+        a) 일치 선택자 (Basic Combinator Selector)
+            - abcxyz abc와 xyz선택자를 동시에 만족하는 것
+        b) 자식 선택자
+            - abc>xyz
+        c) 하위(후손) 선택자 (Desendant Combinator Selector)
+            - abc xyz 사이에 공백 표시
+        d) 인접 형제 선택자(Adjacent Sibling Combinator)
+            - abc+xyz
+            - 선택자 abc의 다음 형제 요소 xyz 하나를 선택
+        e) 일반 형제 선택자(General Sibling Combinator)
+            - abc~xyz
+            - 선택자 abc의 다음 형제 요소 xyz 모두를 선택
+
+    3) 가상 클래스 선택자(Pseudo Classes Selector)
+        a) HOVER : 마우스가 올라가 있는 동안 선택
+            - abc:hover {} 공백주의
+        b) ACTIVE : 마우스를 클릭하고 있는 동안 선택
+            - abc:active {}
+        c) FOCUS : 해당 요소가 포커스 되면 선택
+            - abc:focus {}
+            - HTML 대화형 컨텐츠에만 적용 (input, a, label, select, button, textarea, ...)
+            - focus를 가질 수 없는 요소에 foucs를 가질 수 있게 하기 위해서는 
+              tabindex 라는 속성을 사용해야 한다.
+        ------------------------------------------
+        d) FIRST CHILD : 선택자가 형제 요소중에 첫번째일 때 선택
+        e) LAST CHILD : 선택자가 형제 요소중에 마지막일 때 선택
+        f) NTH CHILD : 선택자가 형제 요소중에 n번째일 때 선택
+        g) Negative Selector NOT
+            - abc:not(xyz) -> 선택자 xyz가 아닌 abc 요소를 선택
+
+    4) 가상 요소 선택자 (Pseudo Element Selector)
+    - 인라인 요소
+        a) BEFORE : 선택자 요소의 내부 앞에 내용을 삽입
+            - 선택자::before {content:"내용"}
+        b) AFTER : 선택자 요소의 내부 뒤에 내용을 삽입
+            - 선택자::after {content:"내용"}
+
+    5) 속성 선택자 (Attribute Selector)
+        [속성] {}
+        [속성=값] {}
+
+(2) 글자와 상자
+    1) 인라인 요소 : 글자를 만들기 위한 요소
+        - span 줄어들려는 속성
+        - 수평 정렬, 줄바꿈 현상이 없다
+        - width/height 값 적용 불가
+        - margin/padding/bottom 값 적용 불가(좌우 여백은 가능)
+        - block 요소 포함 불가
+        - <img> <a> <span>
+    2) 블록 요소 : 상자(레이아웃)를 만들기 위한 요소 
+        - div 폭이 커지려는 속성
+        - 줄바꿈 현상이 나타난다
+        - width/height 값 적용 가능
+        - margin/padding/bottom 값 적용 가능
+        - Inline 요소 포함 가능
+        - <div> <p> <h> <ul>
+
+(3) 스타일 상속
+    1) 주로 글자/문자 관련 속성들에 대해서 상속이 가능하다
+    2) font-style, font-weight, font-size, line-height, font-family, color, text-align
+    3) 강제 상속 : inherit
+
+(4) 선택자 우선 순위 ★
+같은 요소가 여러 선언의 대상이 된 경우, 어떤 선언의 CSS 속성을 우선 적용할 것인지 결정
+    - 점수가 가장 높은 선언이 우선
+    - 점수가 같은 경우 가장 마지막에 선언된 속성이 우선
+
+    1) 점수
+        - 인라인 선언 : 1000점
+        - ID 선택자 : 100점
+        - class 선택자 : 10점
+        - 태그 선택자 : 1점
+        - 전체 선택자(*), 부정 : 0점
+        - 상속 : 점수 없음
+        - !important : 0순위, 치트키
+
+    2) 사례
+        - .list li.item {} 21점
+        - #submit span {} 101점
+        - :not(.box) {} 10점
+
+(5) 속성 
+- 박스 모델, 글꼴/문자, 배경, 배치, 플렉스(정렬), 전환(애니메이션),
+  변환, 띄움, 애니메이션, 그리드, 다단, 필터
+
+    1) 박스 모델 (블럭요소)
+        - 너비  width, height
+            *. 기본값 : Auto
+            *. 단위 : px, em, rem, vh, vw 등
+        - 최대 너비 (max-width, max-height)
+            *. 기본값 : none 제한이 없음
+            *. auto : 잘 사용하지 않음
+            *. 단위 : px, em, rem, vh, vw 등
+        - 최소 너비 (min-width, min-height)
+            *. 기본값 : 0
+            *. auto : 잘 사용하지 않음
+            *. 단위 : px, em, rem, vh, vw 등
+        - 단위
+            *. px, 
+            *. % 부모의 범위안에서 상대적으로 적용
+            *. em : 요소의 글꼴 크기 (부모 글자 크기에 따름)
+            *. rem : 루트(<html>태그) 요소의 글꼴 크기 (<html>태그 글자 크기에 따름)
+            *. vw, vh : viewport(브라우저 전체 화면)의 가로/세로 너비의 백분율
+        - 외부 여백(margin)
+            *. 기본값 : 0
+            *. auto, 단위, %(잘 안씀)
+            *. 음수 지정 가능 = 겹침
+            *. 단축 속성 (값이 같을 경우 적용 가능)
+                margin: top; right; bottom; left; 상/우/하/좌
+                margin: top bottom; left right; 상하/좌우
+                margin: top; left right; bottom; 상/중/하
+                margin: top right bottom left;
+            *. 개별 속성
+                margin-top, margin-bottom, margin-left, margin-right
+        - 내부 여백(padding)
+            *. 기본값 : 0
+            *. 단위, %(유용)
+            *. 요소의 크기가 커진다.
+            *. 단축 속성 (값이 같을 경우 적용 가능)
+                padding: top; right; bottom; left; 상/우/하/좌
+                padding: top bottom; left right; 상하/좌우
+                padding: top; left right; bottom; 상/중/하
+                padding: top right bottom left;
+            *. 개별 속성
+                padding-top, padding-bottom, padding-left, padding-right
+        - 테두리선과 색상 표현
+            *. border : 선 두께, 선 종류, 선 색상
+            *. 요소의 크기가 커진다.
+            *. 개별 속성
+                border-width: 단축 속성 사용
+                ----------------------------------------
+                border-style: 단축 속성 사용
+                ----------------------------------------
+                border-color: 단축 속성 사용
+                    색상 이름 : 브라우저에서 제공하는 이름
+                    16진수 : #000(검정),  #FFFFFF(흰색)
+                ----------------------------------------
+                border-방향: border-top, border-bottom, ...
+                border-방향-속성: border-top-width, border-bottom-style, ...
+        - 모서리 둥글게: border-radius
+            *. 기본값 : 0 각지게
+            *. 단위 : px, em, vw 등
+            *. 단축 속성
+        - 크기 계산 (box-sizing)
+            *. 요소의 크기 계산 기준을 지정
+            *. 기본값 :  content-box (요소의 내용으로만 크기 계산)
+            *. border-box (요소의 내용 + padding + border 크기로 계산)
+        - 넘침 제어 (overflow)
+            *. 요소의 크기 이상으로 내용이 넘쳤을 때, 보여짐을 제어하는 단축 속성
+            *. 기본값 : visible
+            *. hidden : 넘친 내용을 잘라냄
+            *. auto : 넘친 내용이 있을 때만 잘라내고 스크롤바 생성
+            *. scroll (x)
+            *. 개별 속성
+                overflow-x, overflow-y
+
+        - 출력 특성 (display)
+            *. 기본값 : block, inline, inline-block
+            *. flex : 1차원 레이아웃 
+            *. grid : 2차원 레아이웃
+            *. none : 화면에서 안 보여짐
+        - 투명도 (opacity)
+            *. 기본값 :1 
+            *. 0~1 사이의 소수점 숫자
+
+    2) 글꼴
+        - font-style
+        - font-weight : 기본두께 400(normal), 두껍게 700(bold) (보통100~900)
+        - font-size
+        - line-height : 숫자(배수)
+        - font-family : 글꼴1, 글꼴2, 글꼴계열
+            *. 글꼴 계열 : serif, sans-serif, monospace(고정너비글꼴), cursive, fantasy
+    
+    3) 문자
+        - color
+        - text-align (정렬) : left, right, center
+        - text-decoration (선 여부) : none, underline, line-through(세로줄간격)
+        - text-indent 들여쓰기(양수)와 내어쓰기(음수) 모두 지정
+
+    4) 배경
+        - background-color : transparent(기본값)
+        - background-image : none(기본값), url("이미지경로")
+        - background-repeat 가로 세로 반복
+        - background-position xy좌표로 원하는 위치에 놓을 수 있음
+            방향 : top, bottom, left, right, center
+            단위 : px, em, rem, 등으로 지정
+        - background-size
+            *. auto : 실제 크기
+            *. 단위
+            *. cover (비율을 유지하고 요소의 더 넓은 너비에 맞춤)
+            *. contain (비율을 유지하고 요소의 더 짧은 너비에 맞춤)
+        - background-attachment
+            scroll
+            fixed
+    
+    5) 배치 (position) ★
+    요소를 배치할 때는 어떤 기준을 먼저 설정하고 나서(position) 
+    위치(top bottom left right z-index)를 정해야 한다.
+        -position : 요소의 위치 지정 기준
+            *. static : 기준 없음
+            *. relative : 요소 자신을 기준 (잘 사용하지 않음)
+            *. absolute : 위치상 부모 요소를 기준 (공백이 생기지 않음)
+            *. fixed : 뷰포트를 기준
+        - 요소 쌓임 순서 (stack order) 겹쳤을때 레이아웃 우선순위를 정함
+            *. 요소에  position  속성값이 있는 경우 위에 쌓임
+            *. 위의 조건이 같은 경우, z-index의 값이 높을 수록 위에 쌓임
+            *. 위의 조건들이 모두 같은 경우 작성된 순서가 마지막일수록 위에 쌓임
+        - position의 값이 absolute, fixed일 경우 display 속성이 block으로 변경됨.
+    
+    6) 플렉스(flex) : 정렬 #07_flex1
+    1차원의 레이아웃을 만드는 개념
+        - flex container (부모)
+            *. display, flex-flow, flex-direction, flex-wrap, justify-content, align-contain, align-item
+        - flex item (자식)
+            *. order, flex, flex-grow, flex-shrink, flex-basis, align-self
+        -----------------------------------------------------------------------------------------------
+        - display
+            *. flex : flex container 정의
+            *. inline-flex : inline 요소로 사용
+        - flex-direction : 주축을 설정 (수평, 수직) (부모속성)
+            *. row 컨텐츠 방향 좌 -> 우 /수평
+            *. row-reverse 우 -> 좌
+            *. column, column-reverse (x)
+        - flex-wrap : 자동 줄바꿈 
+            *. 기본값 : nowrap
+            *. wrap : 여러 줄로 묶음 
+            *. Wrap-reverse
+        - justify-content : 주축의 정렬 방법을 설정 (수평)
+            *. flex-start
+            *. flex-end
+            *. center
+        - align-content : 교차축(수직)의 여러 줄 정렬 (수평)
+            *. stretch : 시작점으로 정렬
+            *. flex-start : 시작점으로 정렬
+            *. flex-end : 끝점으로 정렬
+            *. center : 가운데 정렬
+        - align-item : 교차축 한줄 정렬 방법
+            *. stretch 
+            *. flex-start 
+            *. flex-end 
+            *. center 
+        - order #08_flex2 (자식속성)
+            *. 기본값 : 0
+            *. 숫자 : 숫자가 작을 수록 먼저
+        - flex-grow : Flex Item의 증가 너비 비율
+            *. 기본값 : 0 
+            *. 숫자 : 증가 비율
+        - flex-shrink : Flex Item의 감소 너비 비율
+            *. 기본값 : 1
+            *. 숫자 : 감소 비율
+        - flex-basis : Flex Items의 공간 배분 전 기본 너비
+            *. auto : 요소의 content 너비에
+            *. 단위 : px, em, rem 등으로 지정 0에는 단위 미사용
+
+    7) 전환 : transition #09_transition
+    요소의 전 상태와 후 상태의 중간 단계를 자연스럽게 만들어주는 효과
+        - transition : 속성명   지속시간   타이밍함수   대기시간; (지속시간은 필수값)
+        - transition-property
+            *. 기본값 : all
+            *. 속성 이름 : 전환 효과를 사용할 속성명을 명시
+        - transition-duration
+            *. 기본값 : 0s 
+            *. 시간 : 지속 시간(s)을 지정
+            *. 단축 속성 사용시 필수 속성
+        - transition-delay
+            *. 기본값 : 0s 
+            *. 시간 : 대기 시간(s)을 지정 (0.5s=.5s)
+
+    8) 변환 : transfrom #10_transition
+        - transfrom : 변환함수1 변환함수2 변환함수3 ...
+        - transfrom : 원근법    이동    크기    회전    기울임  (원근법은 항상 첫번째 순서)
+        ---------------------------------------------------------------------------------
+        - 변환 함수 2D : matrix(n, n, n, n, n) -> 가독성이 떨어져 개별속성을 이용함
+            translate(x,y) 이동
+            translateX(x)
+            translateY(y)
+            scale(x,y) 크기
+            rotate(degree) 회전
+            skewX(x) 기울임
+            skewY(y)
+        - 변환 함수 3D : matrix3d(n, n, n, ...n)
+            rotateX(x)
+            rotateY(y)
+            perspective(n) : 원근법(거리/관점/뷰), 관찰 대상에 적용
+        ---------------------------------------------------------------------------------
+        - 3D 관련 속성 
+            - perspective: 값(px 단위 등), 관찰 대상의 부모에 적용
+            - backface-visibility: visible 또는 hidden (뒤쪽을 보여주냐 마냐)

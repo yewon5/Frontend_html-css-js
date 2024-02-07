@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td>가</td>
+            <td>나</td>
+            <td>다</td>
+            <td>라</td>
+        </tr>
+        <tr>
+            <td>마</td>
+            <td>바</td>
+            <td>사</td>
+            <td><img src="./images/duke_box.gif" /></td>
+        </tr>
+    </table>
+    <hr/>
+
+    <!-- 3행 4열 -->
+    <table border="1">
+        <tr>
+            <td rowspan="2">a</td>
+            <td>b</td>
+            <td colspan="2">c</td>
+            <!-- <td>d</td> -->
+        </tr>
+        <tr>
+            <!-- <td>1</td> -->
+            <td>2</td>
+            <td>3</td>
+            <td rowspan="2">4</td>
+        </tr>
+        <tr>
+            <td>ㄱ</td>
+            <td>ㄴ</td>
+            <td>ㄷ</td>
+            <!-- <td>ㄹ</td> -->
+        </tr>
+    </table>
+    <hr/>
+
+    <div style="background-color: aqua;">내용</div>
+    <span style="background-color: yellow;">내용</span>
+    <table style="width: 100%;">
+        <tr>
+            <td style="background-color: skyblue;">내용</td>
+        </tr>
+    </table>
+    <hr/>
+
+    <div style="background-color: yellow; width: 300px; height: 100px;">내용</div>
+    <div style="background-color: cyan; width: 300px; height: 100px;">내용</div>
+
+    <div style="margin-top: 20px;">
+        <div style="background-color: yellow; width: 300px; height: 100px;">내용</div>
+        <div style="background-color: cyan; width: 300px; height: 100px;">내용</div>
+    </div>
+    <hr/>
+
+    <div style="background-color: yellow; width: 300px; height: 100px; float:left;">내용</div>
+    <div style="background-color: cyan; width: 300px; height: 100px; float:left;">내용</div>
+
+    <div style="clear: both;"></div>
+
+    <div style="margin-top: 20px;">
+        <div style="background-color: yellow; width: 300px; height: 100px;">내용</div>
+        <div style="background-color: cyan; width: 300px; height: 100px;">내용</div>
+    </div>
+    <hr/><hr/>
+
+    <div style="margin-top: 10px;"></div>
+    <div style="width: 600px; background-color: gainsboro;">
+        <div style="background-color: yellow; height: 100px;">상단</div>
+
+        <div style="margin-top: 10px;"></div>
+        <div>
+            <div style="background-color: coral; 
+            height: 400px; width: 100px; float:left; margin-right: 10px;">왼쪽 사이드메뉴</div>
+            <input type="checkbox" name="hobby" id="c1"><label for="c1">낚시</label><br>
+            <input type="checkbox" name="hobby"><label>여행</label><br>
+            <input type="checkbox" name="hobby"><label>독서</label><br>
+            <input type="checkbox" name="hobby"><label>운동</label><br><br>
+            <div style="background-color: darkseagreen; 
+            height: 400px; width: 490px; float:left;">컨텐츠 영역</div>
+        </div>
+        
+        <div style="clear: both;"></div>
+        <div style="background-color: hotpink; 
+        height: 100px; margin-top: 10px;">하단</div>
+
+    </div>
+</body>
+</html>

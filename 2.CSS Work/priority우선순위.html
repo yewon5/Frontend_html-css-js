@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {color: red !important}
+        #color_yellow {color: yellow;} /* 2 */
+        .color_green {color: green;} /* 3 */
+        div {color: blue;} /* 4 마지막 선언 */
+        * {color: darkblue;}
+        body {color: violet; }
+
+    </style>
+</head>
+<body>
+    <div id="color_yellow" class="color_green" 
+        style="color:orange"> <!-- 1 -->
+        Hello World!!
+    </div>
+</body>
+</html>

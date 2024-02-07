@@ -1,0 +1,6 @@
+/* 다른 CSS를 추가 */
+@import url("box.css");
+
+h1 {color: red; font-size: 20pt; font-family: 궁서;}
+span {background-color: aqua;}
+body {color: blue;}
