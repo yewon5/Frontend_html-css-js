@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {height: 3000px;}
+        .parent {
+            width: 300px; 
+            height: 200px; 
+            padding: 20px;
+            border: 10px solid;
+            background-color: skyblue;
+            overflow: auto;
+        }
+        .child {
+            width: 200px;
+            height: 1000px;
+            border: 10px solid;
+            background-color: salmon;
+        }
+        
+        .child.active {
+            background-color: yellowgreen;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            const p = document.querySelector('.parent');
+            const c = document.querySelector('.child');
+
+            /*
+            //마우스 버튼을 누르는 순간에 발생
+            c.addEventListener('mousedown', e=>{
+                console.log(e.clientX, e.clientY);
+                //button: 왼0 휠1 오2
+                console.log(e.which, e.button);
+
+                c.classList.add("active"); //
+            });
+    
+            //마우스 버튼을 누른 후 떼는 순간에 발생
+            c.addEventListener('mouseup', e=>{
+                console.log("up");
+                c.classList.remove('active');
+            })
+        
+            //요소를 클릭할 때 발생
+            c.addEventListener('click', ()=>{
+                c.classList.toggle('active');
+            });
+
+            //요소를 더블 클릭할 때 발생
+            c.addEventListener('dblclick', ()=>{
+                c.classList.toggle('active');
+            });
+            
+            //마우스 커서가 요소 위로 이동하여 요소 안으로 진입할 때 발생
+            c.addEventListener('mouseenter', ()=>{
+                c.classList.add('active'); //add
+            });
+
+            //마우스 커서가 요소 위에서 벗어날 때 발생
+            c.addEventListener('mouseleave', ()=>{
+                c.classList.remove('active'); //remove
+            });
+
+            //마우스의 위치가 콘솔창에 나타남
+            c.addEventListener('mousemove', e=>{
+                console.log(e.offsetX, e.offsetY);
+            });
+            
+            //마우스우클릭
+            c.addEventListener('contextmenu', e=>{
+                e.preventDefault(); //우클릭 금지
+                console.log(e);
+            });
+        
+            //스크롤의 위치
+            p.addEventListener('wheel', e=>{
+                // console.log(e); // deltaX 좌우 deltaY 상하
+                console.log(p.scrollLeft, p.scrollTop);
+            });
+            */
+        }
+    </script>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">
+        </div>
+    </div>
+</body>
+</html>

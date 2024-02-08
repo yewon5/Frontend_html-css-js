@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./../JS/log.js"></script>
+    <script>
+        window.onload = function(){
+        const children = document.querySelectorAll(".child"); //배열
+
+        /*    
+        for(let i=0; i<children.length; i++){
+            const ch = children[i];
+            ch.addEventListener('click', ev=>{
+                log(ev.target.textContent); //또는 ch.textContent
+            }, false);
+        }
+        */
+    
+        /*
+        //자동으로 배열을 호출함
+        children.forEach(param => {
+            param.addEventListener('click', ev=>{
+                log(param.textContent); //또는 ev.target.textContent
+            }, false);
+        }); // children값을 하나씩 param매개변수로 넘겨준다.
+        */
+
+        const parent = document.querySelector('.parent');
+
+        parent.addEventListener('click', ev => {
+            const ch = ev.target.closest('.child'); //target(이벤트소스)=parent, closest=가까운 조상 찾기
+
+            if(ch){
+                log(ch.textContent);
+            }
+        }, );
+    }
+    </script>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">1111</div> <!-- 이벤트 위임 : 자식이 많을 경우 부모한테 위임하는 것-->
+        <div class="child">2222</div>
+        <div class="child">3333</div>
+        <div class="child">4444</div>
+    </div>
+    <br><br>
+    <div id="debugConsole" style="border: 1px solid skyblue"></div>
+</body>
+</html>

@@ -308,14 +308,37 @@
 
         - 이벤트 핸들러 : 함수
 
-    2) 이벤트 등록 및 해제
-        addEventListener(이벤트 클래스, 이벤트 핸들러, 캡처 타입) 매소드
+    2) 이벤트 등록 및 해제 #18_event2
+        addEventListener(이벤트 클래스, 이벤트 핸들러, 캡처 타입) //세번째인자는 값이 없으면 false 매소드
         removeEventListener(이벤트 클래스, 이벤트 핸들러, 캡처 타입)
 
     3) 이벤트 정보 확인 : 매개변수를 통해서 확인
 
-    4) 기본 동작 방지 : preventDefault()
+    4) 기본 동작 방지 : preventDefault() #19_event3
+
+    5) 버블링과 캡처링 : 이벤트 전파(Propagation) 방식 #20_event4
+        - 캡처링은 addEventListener의 세번째 인자인 capture 단계를 false로 지정하여 방지
+        - 버블링은 stopPropagation()를 호출하여 방지
+
+    6) 이벤트 옵션
+        addEventListener(이벤트 클래스, 이벤트 핸들러, 옵션) 
+            - once : 핸들러를 한 번만 실행하게 해주는 옵션
+            - passive : 기본 동작과 핸들러의 실행을 분리시켜주는 옵션
     
+    7) 이벤트 위임(Delegate) #21_Event5
+
+    8) 마우스와 포인터 이벤트 //태그나 객체 앞에는 on붙여줘야 한다.
+        click, dblclick, mousedown, mouseup, mouseenter, mouseleave, mousemove, contextmenu, wheel
+
+    9) 키보드 이벤트
+        keydown, keyup, focus, blur, input, change, submit, reset
+
+    
+(10) 정규 표현식
+
+(11) 모듈
+
+(12) JQuery
 
         
         

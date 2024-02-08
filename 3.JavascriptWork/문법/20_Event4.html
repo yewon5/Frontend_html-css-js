@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #grand {border: 1px solid red}
+        #parent {border: 1px solid green}
+        #child {border: 1px solid blue}
+    </style>
+
+    <script src="./../JS/log.js"></script>
+    <script>
+        window.onload = function(){
+            const child = document.getElementById("child");
+            const parent = document.getElementById("parent");
+            const grand = document.getElementById("grand");
+
+            grand.addEventListener("mousedown", ev=>{ //어디를 눌렀는지 확인
+                log("Grand~");
+            }, {once:true}) //{once:true} 딱 한 번만 실행된다.
+        
+            parent.addEventListener("mousedown", ev=>{ 
+                log("Parent~");
+                ev.stopPropagation(); //버블링 호출 방지
+            }, {capture:false})
+
+            child.addEventListener("mousedown", ev=>{ 
+                log("Child~");
+                ev.stopPropagation();
+            }, false)
+
+
+                
+        }
+    </script>
+</head>
+<body>
+    <div id="grand">
+        grand의 상단
+        <div id="parent">
+            parent의 상단
+            <div id="child">
+                child
+            </div>
+            parent의 하단
+        </div>
+        grand의 하단
+    </div>
+    <br><br>
+    <div id="debugConsole" style="border: 1px solid skyblue"></div>
+</body>
+</html>
