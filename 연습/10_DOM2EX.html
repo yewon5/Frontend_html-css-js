@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+        function fnLoad(){
+            /* createElement() */
+        let newp = document.createElement("p"); // 새로운 <p> 선언
+        console.log(newp); // 새로운 <p> 생성
+        
+            /* prepend() append() */
+        let parent = document.querySelector(".parent"); //  클래스가 "parent"인 첫 번째 요소 <div> 선언
+        newp.textContent = "안녕 나는 토마토!!"; // 텍스트 생성
+        console.log(newp); // <p>안녕 토마토!!</p> 콘솔 출력
+        parent.prepend(newp); // 첫자식으로 생성
+        parent.append(newp); // 끝자식으로 생성
+        parent.append('안녕 나는 감자'); // "안녕 나는 감자" 맨 끝 출력
+        comment = new Comment('난 주석쓰'); // 주석 생성
+        parent.append(comment); // 주석 맨 끝 출력
+
+            /* insertAdjacentElement(위치, 새로운 요소) */
+        let childB = document.querySelector(".child"); // 클래스가 "child"인 첫 번째 요소 <b> 선언
+        let newdiv = document.createElement("div"); // 새로운 <div> 선언
+        newdiv.textContent = "맛있는 친구들^^"; // 텍스트 생성
+        childB.insertAdjacentElement('afterend', newdiv); // <b> 다음형제로 <div> 추가
+        parent.append(newdiv);
+
+            /* insertBefore(추가할 노드, 참조할 노드) */
+        let newdiv2 = document.createElement("div") // 새로운 <div> 선언
+        newdiv2.textContent = "고마워!!"; // 텍스트 생성
+        parent.insertBefore(newdiv2, childB); // <b> 기준 이전 형제로 <div> 추가 = previousSibling
+        parent.append(newdiv2);
+
+            /* contains() */ 
+        console.log(parent.contains(childB)); // true <div>의 자식 <b>
+        console.log(parent.contains(newp)); // true <div>의 자식 <p>
+
+            /* innerHTML */
+        console.log(parent.innerHTML); // 태그, 주석, 텍스트 모든 요소
+        console.log(parent.innerText); // 텍스트 줄바꿈
+        console.log(parent.textContent); // 텍스트
+
+            /* 속성값 처리 */
+        console.log(parent.tagName); // DIV
+        console.log(newp.tagName); // P
+        console.log(childB.tagName); // B
+
+        childB.id = "childB1"; // <b> 태그에 클래스 "childB" 생성
+        console.log(childB.id); // childB1 id 값을 콘솔에 출력
+        console.log(childB); // <b class="child" id="childB1">1</b> 
+
+        console.log(childB.className); // child
+        childB.className += "BB"; // <b class="childBB" id="childB1">1</b> 
+        console.log(childB.className); // childBB
+
+        let str = "배고파요ㅠㅠ";
+        let obj = { a:5, x:5 };
+        parent.dataset.helloworld = str;
+//        parent.dataset.obj = obj; // [object Object] 압축된 형태로 나타남
+        parent.dataset.obj = JSON.stringify(obj); // JSON, { a:5, x:5 } 압축 풀어줌
+        console.log(parent);
+        console.log(parent.dataset.helloworld); // 배고파요ㅠㅠ 문자열 출력
+        console.log(parent.dataset.obj); // {"a":5,"x":5} 출력
+        console.log(JSON.parse(parent.dataset.obj)); // 객체형으로 출력
+        }
+    </script>
+</head>
+<body onload="fnLoad();">
+    <div class="parent">
+        <b class="child">1</b>
+        <span class="child">2</span>
+    </div>
+</body>
+</html>

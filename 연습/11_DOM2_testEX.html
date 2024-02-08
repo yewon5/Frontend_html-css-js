@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let cnt = 0; // 전역 변수로 선언함으로써 cnt 변수는 프로그램 전체에서 유지 
+        // 지역 변수로 함수 내에 선언한다면, 함수가 호출될 때마다 cnt가 초기화되어 이전 값이 유지되지 않음
+
+        function fnAppendItem(){
+            cnt++;
+            // <div> 생성
+            let newItem = document.createElement("div");
+
+            // <div id="item1"></div> setAttribute("속성명","값");
+            newItem.setAttribute("id", `item${cnt}`);
+
+            // <div id="item1"> 아이템 추가[1] <input type="button" value="삭제" /></div>
+            newItem.innerHTML = `아이템 추가[${cnt}] 
+            <input type="button" value="삭제" onclick='fnDeleteItem(${cnt})' />`;
+            let itemDiv = document.getElementById("itemList"); // id가 "itemList"인 요소 찾고 itemDiv 선언
+            itemDiv.appendChild(newItem);
+        }
+
+
+        // 삭제
+        function fnDeleteItem(cnt){
+            let item = document.getElementById("item" + cnt);
+            if(item !== null){
+                item.parentNode.removeChild(item);
+            }
+        }
+
+
+        // 3초후 이미지 뜸
+        function fn3simg(){
+            let container = document.querySelector(".container"); 
+            // 클래스가 "container"인 첫 번째 요소 <div>
+            let newimg = document.createElement("img");
+            newimg.src ="./duke_point.gif";
+            container.append(newimg);
+        }
+    </script>
+</head>
+<body onload="setTimeout(fn3simg,3000);"> <!-- setTimeout(함수명,초)-->
+    <input type="button" value="추가" onclick="fnAppendItem()" /> 
+    <!-- 클릭 이벤트가 발생했을 때 이 함수를 실행 -->
+    <div id="itemList"></div>
+    <hr/>
+    <div class="container">
+        <h2>image Loading...</h2>
+        3초후에 이미지가 로드됩니다.
+    </div>
+</body>
+</html>
