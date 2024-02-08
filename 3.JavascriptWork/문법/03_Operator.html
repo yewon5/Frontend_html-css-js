@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 산술 연산자 (++, --) 1씩 증거하거나 감소, 단항 연산자
+        let num = 10;
+
+        num = num + 1; //기본값을 없애지 않고 증가만 함
+        num = num + 1;
+        console.log(num);
+
+        num++; // num = num + 1;
+        console.log(num);
+
+        ++num; // 단독 사용시 ++ 순서 상관 없음
+        console.log(num);
+
+        // let num1 = ++num; 우선순위가 ++라서 값이 15
+        let num1 = num++; // 우선순위가 num
+        console.log(num1, num);
+        console.log("------------------------")
+
+        // 비교 연산자 (> < >= <= == !=)
+        num = 10; // 숫자
+        num1 = "10"; // 문자열
+        console.log(num == num1); // == 값만 비교함
+        console.log(num === num1); // === 값과 type을 비교
+        console.log(num != num1);
+        console.log(num !== num1);
+
+        num = 0; // 0은 없다, 부정의 뜻
+        num1 = false; // Boolean
+        console.log(num == num1); // 값의 의미는 같다
+        console.log(num === num1); 
+        console.log("------------------------")
+
+        // 논리 연산자(logical) (&&(and) ||(OR) !(NOT,토글연산자)) 
+        let a = true;
+        let b = false;
+
+        console.log(a && b); // false 하나가 거짓이면 거짓, 0=false
+        console.log(a || b); // true 하나만 참이어도 참
+        console.log(1 && 0, 0 && 1, 1 && 2, 2 && 1); // 0 0 2 1
+        console.log(1 && 2 && 0, 1 && 0 && 2, 7 && 4 && 5); // 0 0 5
+        console.log('A' && 'B' && ''); // 공백, 공백은 거짓
+        // && 가장 처음에 만나는 거짓 데이터를 찾아냄, 숫자는 true일 경우 마지막 숫자값이 나옴 
+
+        console.log(1 || 0, 0 || 1, 1 || 2, 2 || 1); // 1 1 1 2
+        console.log(1 || 2 || 0, 1 || 0 || 2, 7 || 4 | 5); // 1 1 7
+        console.log('A' || 'B' || ''); // A 
+        // || 가장 처음에 만나는 참 데이터를 찾아냄
+
+        console.log(!0, !!0, !!!0); // true false true
+        console.log("------------------------")
+
+        // 할당(치환) 연산자 (= += -= /= )
+        a = 10;
+        a = 5;
+        a = 7;
+        console.log(a); // 7
+
+        b = 10;
+        b += 5; // b = b + 5
+        b += 7; // b = b + 7 
+        console.log(b); // 22
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

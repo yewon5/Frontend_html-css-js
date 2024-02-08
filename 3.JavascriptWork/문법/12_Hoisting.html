@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+/*      //함수 선언식
+        function hello(){
+            console.log("hello~")
+        }
+        hello();
+*/
+
+/*      //함수 선언식 호이스팅이 일어나서 호출 순서가 바뀌어도 상관 없다.
+        hello();
+        function hello(){
+            console.log("hello~")
+        }
+*/
+
+/*      //함수 표현식(무명함수)
+        hello = function(){
+            console.log("hello!")
+        }
+        hello();
+*/
+
+        //함수 표현식에서는 호출 순서가 바뀌면 호이스팅이 일어나지 않는다.
+        hello();
+        hello = function(){
+        console.log("hello!")
+        }
+
+
+    </script>
+</head>
+<body >
+    
+</body>
+</html>

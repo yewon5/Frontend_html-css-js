@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //class에 소속된 변수는 인스턴스 변수, 멤버 변수 
+        //class에 소속된 함수는 메서드, 멤버 함수
+        const Book = function(t, a) { //설계도만 만들어 놓으면 계속 사용 가능
+            this.title = t; //title 일반변수가 아니라 인스턴트 변수
+            this.author = a;
+        }
+
+        let b1 = new Book('노인과 바다', '헤밍웨이'); // b1=this가 메모리의 위치를 가르킴
+        console.log(b1.title, b1.author);
+        let b2 = new Book('홍길동전', '허균'); 
+        console.log(b2.title, b2.author);
+
+        Book.prototype.setValue = function(t, a) {
+            this.title = t; 
+            this.author = a;
+        }
+
+        b1.setValue('노인과 강', '해밍코드');
+        console.log(b1.title, b1.author);
+        console.log("----------------------------");
+
+
+        //const fruits = ['Apple', 'Banana', 'Cherry']; //간편
+        const fruits = new Array ('Apple', 'Banana', 'Cherry'); //정석
+        console.log(fruits);
+        console.log(fruits.length); //배열의 길이
+        console.log(fruits.includes('Banana')); //includes메소드 특정 문자열을 포함하는지 확인
+
+        Array.prototype.won2 = function() {
+            console.log("내가 만든 메서드 : ", this);
+        }
+
+        fruits.won2(); //fruits=this
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log('**********');
+
+        /*
+        // * 10개 출력
+        let cnt = 0; // let 초기화
+
+        while(cnt < 10){ // 조건문
+            console.log('*');
+            cnt++; // 카운터 1씩 증가
+        }
+        */
+
+        for(cnt=0; cnt<10; cnt++) //첫번째 먼저 실행되고 단 한번만,
+            console.log('*');
+
+        /*
+    // 1부터 10까지의 합계 : 55
+        cnt = 0;
+        let sum = 0;
+
+        while(cnt <= 10){
+            sum += cnt // sum = sum + cnt
+            cnt++;
+        }
+        console.log(sum);
+        
+    // for문
+        let sum = 0;
+        for(cnt = 0; cnt<=10; cnt++)
+            sum += cnt
+            console.log(sum);
+        */
+       
+        /*    
+    // 2의 10승 : 1024
+        cnt = 0;
+        sum = 1; // 곱셈은 초기값 1이상
+
+        while(cnt < 10){
+            sum = sum*2; 
+            cnt++;
+        }
+        console.log(sum);
+        
+    // for문
+        cnt = 0;
+        
+        for(sum=1; cnt<10; cnt++)
+            sum = sum*2
+            console.log(sum);
+        */
+
+        // --------------------------------------------------------
+
+        /*
+        //배열 데이터일때 []
+        const fruits = ['apple', 'bananan', 'cherry'];
+        
+        
+        for(let i=0; i<3; i++)
+            console.log(fruits[i]);
+
+
+        for(const item of fruits) // of뒤에 배열데이터
+            console.log(item);
+            
+        
+        let i=0
+        for( ; ; ){ // 무한반복
+            if(i<fruits.length){
+            console.log(fruits[i]);
+            i++;
+            }
+        }
+
+        // for break
+        let i=0
+        for( ; ; ){
+            if(i == fruits.lenght){
+                break;
+            }
+            console.log(fruits[i]);
+            i++;
+        }
+        */
+
+        // --------------------------------------------------------
+
+        // 객체 데이터 일때
+        const user = {
+            name: '홍길동',
+            age: 20,
+            isValid: true,
+            email: 'hong@mail.net'
+        } //index가 없기때문에 반복문 사용 불가
+
+        for(const u in user) 
+            console.log(user[u]); //(u)는 key를 꺼내옴, (user[u]) 값을 꺼내옴
+
+        console.log('--------------------------------------------------');
+
+        for(let i=0; i<10; i++){
+            if(i == 5){
+                break; // 0 1 2 3 4 
+                // continue; // 5는 일시정지 후 다음 순서로
+            }
+            console.log(i);
+        }
+        console.log('--------------------------------------------------');
+
+        /*
+            **********
+            **********
+            **********
+        */
+
+
+        for(let i=0; i<3; i++){ // 행
+            for(let j=0; j<10; j++){ // 열
+                document.write('*');
+            }
+            document.write('<br>');
+        }
+
+        /*
+            *   
+            **
+            ***
+            ****
+            *****
+        */
+
+        for(let i=0; i<5; i++){
+            for(let j=0; j<i+1; j++){
+                document.write('*');
+            }
+            document.write('<br>');
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

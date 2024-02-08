@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fnpopup(){
+            // window.alert("이것은 alert입니다.");
+            // let input = window.prompt("입력하세요.");
+            // document.write(input);
+
+            let choice = window.confirm("당신의 선택은?");
+            if(choice === true)
+                window.alert('확인을 선택했습니다.');
+            else
+                window.alert('취소를 선택했습니다.');
+        }
+
+        function fnEval(){ // 전자계산기 함수 이용
+            let ex = "50 * 2 + 3";
+            console.log(eval(ex));
+
+            ex = "window.alert('안녕'); document.write('hello');";
+            console.log(eval(ex));
+        } // 따옴표 짝 맞추기
+
+        function fnparse(){
+                let num1 = "33";
+                let num2 = "22";
+                console.log(eval(num1) + eval(num2));
+                console.log(parseInt(num1) + parseInt(num2));
+                console.log(parseInt("33abc") + 5); 
+                //parseInt 숫자만 계산, 숫자가 앞에 와야 인식함
+                console.log(parseFloat("3.14^^") + 5); // 실수값, 숫자만 계산
+            }
+
+    </script>
+</head>
+<body>
+    <input type="button" value="alert test"
+        onclick="fnpopup();"/><br><br>
+
+    <input type="button" value="eval test"
+        onclick="fnEval();"/><br><br>
+    
+    <input type="button" value="parse test"
+        onclick="fnparse();"/><br><br>
+    
+    
+    
+</body>
+</html>

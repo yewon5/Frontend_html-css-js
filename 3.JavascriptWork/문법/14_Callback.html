@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+/*        
+        const a = () => { console.log('A'); }
+        const b = () => { console.log('B'); }
+        a();
+        b();
+*/
+
+/*
+        const a = param => { //매개 변수 준비
+            console.log('A');
+            param(); //a가 호출함
+        } 
+        const b = () => { console.log('B'); }
+        
+        a(b); //a를 호출할때 b도 호출되도록
+*/
+
+/*
+        const sum = (a, b) => a + b; //두 수의 합을 리턴
+        console.log(sum(1, 3)); // 4
+
+        //setTimeout(함수, 지연시간);
+        setTimeout(()=>{console.log('hello')}, 3000); //()=>{}는 걍 함수 코드임. ()=>{}() 뒤에 괄호를 붙이면 호출됨.
+*/
+
+/*
+        const sum = (a, b) => {
+            setTimeout(()=>{return a+b}, 3000); 
+        }
+        console.log(sum(1, 3)); //setTimeout에 호출돼서 a+b의 값은 출력이 안됨
+*/
+
+/*
+        //해결 방법 ★
+        const sum = (a, b, func) => {
+            setTimeout(func(a+b), 3000); //setTimeout에 호출돼서 a+b의 값은 출력이 안됨
+        }
+        console.log(sum(1, 3, (val)=>{console.log(val)})); //함수의 코드를 넘겨줌. console.log(val)=func
+*/
+
+        //reduce(함수, 초기값) '함수'는 콜백함수
+        function sum(...rest) {
+            console.log(rest);
+
+            //return rest.reduce(function(acc, cur){return acc + cur}, 0);
+
+            //화살표 함수로 바꾸기
+            //return rest.reduce((acc, cur)=>{return acc + cur}, 0);
+            //return rest.reduce((acc, cur)=>acc + cur, 0);
+
+        }
+        
+        console.log(sum(1, 2));
+        console.log(sum(1, 2, 3, 4));
+        console.log(sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

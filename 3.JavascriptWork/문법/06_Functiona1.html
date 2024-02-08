@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+/*
+        // line(); 이름을 불러줘야 출력 : 함수 호출
+        function line(cnt, type){ // 괄호값 매개변수,매개인자(parameter)
+            for(let i=0; i<cnt; i++)
+            document.write(type);
+
+            document.write('<br>');
+        }
+
+        line(50, '-'); // 괄호 값 실인자(argument), 함수호출할 때 넘겨주는 값
+        document.write('   고객 관리 프로그램    <br>');
+        line(30, '=');
+        document.write('1.  등록 <br>')
+        document.write('2.  검색 <br>')
+        line(50, '*');
+*/
+
+/*
+        //인자가 있는 방식          
+        function line(cnt){
+            for(let i=0; i<cnt; i++)
+                document.write('*');
+
+            document.write('<br>');
+        }
+
+        line(40);
+        document.write('   고객 관리 프로그램    <br>');
+        line(30);
+        document.write('1.  등록 <br>')
+        document.write('2.  검색 <br>')
+        line(50);
+
+        //인자가 없는 방식
+        function line(){
+            document.write('***********************<br>');
+        }
+
+        line();
+        document.write('   고객 관리 프로그램    <br>');
+        line();
+        document.write('1.  등록 <br>')
+        document.write('2.  검색 <br>')
+        line();
+// --------------------------------------------------------------
+*/
+
+/*
+        //return
+        function hap(n1, n2){
+            if(n1 === ' '){
+                return;
+            }
+
+            document.write('<h2>두 수의 합계</h2>');
+            let num3 = n1 + n2;
+            return num3;
+        }
+
+        let num1 = 10;
+        let num2 = 5;
+
+
+        // let num3 = hap(num1, num2);
+        // document.write('결과 : ' + num3);
+        document.write('결과 : ' + hap(num1, num2));
+*/
+
+
+/*
+        function hap(n1, n2){
+            document.write('<h2>두 수의 합계</h1>');
+            let num3 = n1 + n2;
+            document.write('결과 : ' + num3);
+        }
+
+        let num1 = 10;
+        let num2 = 5;
+
+        hap(num1, num2);
+*/
+
+
+        /* 함수 선언문 */
+        //function hello(a, b){
+        //   return a+b;
+        //}
+        //console.log(hello(3, 4));
+
+        
+        /* 함수 표현식 */
+        //const hello = function(a, b){
+        //    return a+b;
+        //}
+        //console.log(hello(3, 4));
+
+        /* 화살표 함수 */
+        //const hello = (a, b) => a+b; // return 생략, 두줄이상은 {}
+        const hello = (a, b) => { return a+b; } 
+        console.log(hello(2, 3));
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

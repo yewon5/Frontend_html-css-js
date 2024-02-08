@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./../JS/log.js"></script>
+    <script>
+        window.onload = function(){
+
+        const div_parent = document.querySelector(".parent");
+
+        div_parent.addEventListener('wheel', ev=>{
+            ev.preventDefault(); //wheel은 인식하고 있지만 스크롤(화면)이 움직이지 않는다.
+            log('wheel~~');
+        }, false);
+
+        const anchor = document.querySelector("a");
+        anchor.addEventListener('click', ev=>{
+            ev.preventDefault(); //click은 되지만 사이트 이동이 되지 않는다.
+            log('click~~');
+        }, false)
+            
+
+
+    }    
+    </script>
+</head>
+<body>
+    <div class="parent" style="height: 1000px">
+        <div class="child">
+            <a href="https://www.w3schools.com/">w3schools</a>
+        </div>
+        <br><br>
+        <div id="debugConsole" style="border: 1px solid skyblue"></div>
+    </div>
+</body>
+</html>

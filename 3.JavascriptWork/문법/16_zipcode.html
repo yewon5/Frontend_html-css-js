@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주소 검색</title>
+    <script>
+        function fnAddress(si, gu, gun){
+            let addr = si + " " + gu + " " + gun;
+            // alert(addr);
+            //document.f1.addr.value = addr; //document자식 form의 name으로 접근한다. name이 없을땐 form[0] 
+
+            opener.document.f1.addr.value = addr; // window(부모)의 검색창에 선택한 주소가 띄워진다
+            window.close();
+        }
+    
+    </script>
+</head>
+<body>
+    <a href="#" onclick="fnAddress('서울시', '종로구', '효자동')">서울시 종로구 효자동</a><br>
+    <a href="#" onclick="fnAddress('서울시', '강남구', '역삼동')">서울시 강남구 역삼동</a><br>
+    <a href="#" onclick="fnAddress('서울시', '강동구', '천호동')">서울시 강동구 천호동</a><br>
+    <br>
+    <form name="f1">
+        <input type="text" name="addr" />
+    </form>
+</body>
+</html>

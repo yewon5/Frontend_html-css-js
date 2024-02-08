@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fnLoad(){
+            /* Node vs Element */
+            const parent = document.querySelector('.parent');
+            
+            console.log(parent.childNodes); // Node
+            console.log(parent.children); // Element
+        
+
+            /* 검색 api */
+            const e1 = document.getElementById('child2');
+            console.log(e1);
+
+            const e2 = document.getElementById('child222');
+            console.log(e2); // null
+
+            const e3 = document.querySelector('.child');
+            console.log(e3); // 여러개중 첫번째
+
+            const e4 = document.querySelector('#child2');
+            console.log(e4); // id = # (1순위)
+
+            const e5 = document.querySelector('.child:last-child');
+            console.log(e5); // id가 없을때 가상클래스 이용 (2순위)
+
+            const e6 = document.querySelectorAll('.child');
+//            console.log(e6); 
+//            console.log(e6[0].textContent); // [0] 인덱스로 접근, .textContent 텍스트 값만 출력
+        
+
+            //for(let i=0; i<e6.length; i++){
+            //    console.log(e6[i].textContent);
+            //}
+
+            //for(let i of e6)
+            //    console.log(i.textContent);
+
+
+            e6.forEach((e) => {console.log(e.textContent)})
+            // (e) i와 같음. e6이 갖고 있는 데이터 만큼 함수를 여러번 호출. 선언식x 화살표o
+            
+            const e7 = document.querySelector(".child");
+            console.log(e7.parentElement);
+            // e7=Node 
+
+            console.log(e7.closest('div'));
+            console.log(e7.closest('body'));
+            console.log(e7.closest('hello')); // null
+            // closest 가장가까운 요소(태그)를 찾아주는 함수
+
+            console.log(e7.previousSibling); // #text=공백, div와 주석이 붙어있다면 주석이 출력됨
+            // previousSibling 이전 형제가 누구?
+            console.log(e7.nextSibling); // "텍스트1"
+            console.log(e7.previousSibling.parentElement);
+
+            console.log(e7.parentElement.children); // 첫번째 div/두번째 div Ele
+
+            console.log(e7.previousElementSibling); // null
+            console.log(e7.nextElementSibling); // 두번째 div
+
+            console.log(e7.firstElementChild); // null , e7의 자식은 1 텍스트라서 
+            console.log(e7.parentElement.firstElementChild); // 첫번째 div
+            console.log(e7.parentElement.lastElementChild); // 두번째 div
+        
+        }
+    </script>
+</head>
+<body onload="fnLoad();"> <!-- body가 화면에 보여질 때 fnLoad()호출-->
+    <div class="parent">
+        <!-- 주석 -->
+        <div class="child">1</div>
+         텍스트1 
+        <div id="child2" class="child">2</div>
+         텍스트2
+    </div>
+</body>
+</html>

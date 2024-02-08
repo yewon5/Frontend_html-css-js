@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fnLoad(){
+            /* createElement() */
+        let e_div = document.createElement("div");
+        console.log(e_div); // 새로운 <div></div> 생성
+        console.log('--------------------------');
+
+            /* prepend() append() */
+        let parent = document.querySelector('.parent'); // .class 불러오기
+        
+        e_div.textContent = "Hello~";
+        console.log(e_div);
+//        parent.append(e_div); 
+//        parent.append("World!"); // 웹화면에 텍스트 추출
+        parent.append(e_div, "World!~");
+
+        comment = new Comment('이것은 주석입니다.'); // 주석 추가
+        parent.prepend(comment);
+        console.log('--------------------------');
+        
+            /* insertAdjacentElement(위치, 새로운 요소) */
+        let child1 = document.querySelector(".child"); // .child 속성으로 child1태그 불러오기
+        let e_span = document.createElement("span"); // 새로운 <span> 생성
+        e_span.textContent = "안녕하세요~~"; // 텍스트 생성
+//        let e_span1 = document.createElement("span");
+//        e_span1.textContent = "홍길동님!";
+//        child1.insertAdjacentElement('beforebegin', e_span); // 첫<div> 앞에 <span>추가
+//        child1.insertAdjacentElement('afterbegin', e_span); // 안녕하세요~~1
+//        child1.insertAdjacentElement('beforeend', e_span); // 1안녕하세요~~
+//        child1.insertAdjacentElement('afterend', e_span1); // 홍길동님
+        child1.insertAdjacentElement('afterend', e_span); // 안녕하세요 첫<div> 뒤에 <span>추가
+        console.log('--------------------------');
+
+            /* insertBefore */
+        let e_span2 = document.createElement("span");
+        e_span2.textContent = "임꺽정님!";
+        parent.insertBefore(e_span2, child1); //child1 기준 이전 형제로 <span> 추가 = previousSibling
+        console.log('--------------------------');
+
+            /* contains() */
+        console.log(parent.contains(child1)); // true parent의 자식 child1
+        console.log(document.body.contains(parent)); // true body의 자식 parent
+        console.log(document.body.contains(child1)); // true
+        console.log(parent.contains(parent)); // true 자신 포함
+        console.log(parent.contains(document.body)); // false body는 parent부모임
+
+            /* innerHTML */
+        console.log(parent.innerHTML); // 태그, 텍스트
+        console.log(parent.innerText); // 텍스트 줄바꿈
+        console.log(parent.textContent); // 텍스트
+
+        // parent.innerHTML += "<span style = 'color:red'>Hi~~</span>"; 
+        // = 기존 요소가 제거되지만 += 할당 연산자를 이용해 기존 요소 포함
+        // parent.textContent += "<span style = 'color:red'>Hi~~</span>";
+        console.log('--------------------------');
+
+            /* 속성값 처리 */
+        console.log(parent.tagName); // DIV
+        console.log(e_span.tagName); // SPAN
+        
+        child1.id = "child1";
+        console.log(child1.id); // Element창에서 첫<div>에 id 속성 추가된 것 확인 가능
+        console.log(child1); 
+
+        console.log(child1.className); // child
+        child1.className += " child1 active";
+        console.log(child1.className); // 
+
+        let str = "Hello World~~!!";
+        let obj = {a:1, b:2};
+        parent.dataset.helloworld = str;
+//        parent.dataset.obj = obj; // [object Object] 압축된 형태로 나타남
+        parent.dataset.obj = JSON.stringify(obj); // JSON 압축 풀어줌
+        console.log(parent);
+        console.log(parent.dataset.helloworld); // Hello World~~!! 문자열 출력
+        console.log(parent.dataset.obj); // {"a":1,"b":2}
+        console.log(JSON.parse(parent.dataset.obj)); // 문자열을 객체형으로 출력
+        }
+    </script>
+</head>
+<body onload="fnLoad();">
+    <div class="parent">
+        <div class="child">1</div>
+        <div class="child">2</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fnOpen(){
+            window.open("16_zipcode.html", "", "left=100, to=100, width=500, height=320");
+        }
+
+        let timer;
+        function fnShowwaith(){ // 현재 시간이 텍스트창에 보여지는 함수
+            let today = new Date();
+            //console.log(today);
+            let msg = `현재 시간은 ${today.getHours()}시 ${today.getMinutes()}분 ${today.getSeconds()}초 입니다.`;
+
+            document.f1.watch.value = msg;
+
+            //timer = setTimeout(fnShowwaith, 1000); //재귀 함수 : 스스로 계속 호출함 
+        }
+
+        function fnstop(){ //현재 시간 중지 함수
+            clearTimeout(timer); //clearTimeout 시간을 중지시키는 함수 
+            //하지만 timer는 위에 fnShowwaith 안에서 선언된 변수라서 사용 불가.(지역함수)
+            //let timer;을 fnShowwaith 함수 밖에 선언해주면 가능하다.
+        }
+
+        function fnStart(){ //현재 시간 시작 함수
+            //setTimeout(fnShowwaith, 1000); //원래는 1회만 호출.
+           timer = setInterval(fnShowwaith, 1000); //setInterval 버튼 클릭시 1초마다 계속 호출
+        }
+
+    </script>
+</head>
+<body onload="fnShowwaith()"> <!-- onload 화면에 보여지는 순간 JS실행 -->
+    <form name="f1">
+        <input type="button" value="주소 검색" onclick="fnOpen()"/><br><br>
+        <input type="text" name="addr" size="50" />
+        <br><br><hr/><br>
+
+        <input type="text" name="watch" size="50" /> <!-- 현재 시간 텍스트창 -->
+        &nbsp;&nbsp;&nbsp;
+        <input type="button" value="현재 시간 시작" onclick="fnStart()"/>&nbsp;
+        <input type="button" value="현재 시간 중지" onclick="fnstop()"/>
+        <hr/>
+        
+
+
+    </form>
+</body>
+</html>

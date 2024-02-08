@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let cnt = 0; // 전역 변수, 함수 밖에서 선언해야함
+
+        function fnAppendItem(){
+            cnt++;
+            // <div></div>만들어줌
+            let newItem = document.createElement("div"); 
+
+            // <div id="item1"></div>
+            newItem.setAttribute("id", `item${cnt}`); // `item${cnt}` <div> 추가 생성 
+
+            // <div id="item1">새로 추가된 아이템[1] <input type="button" value="삭제" /></div>
+            newItem.innerHTML = /* html */ `새로 추가된 아이템[${cnt}] 
+                    <input type="button" value="삭제" onclick='fnDeleteItem(${cnt})' />`; 
+                    // onclick='fnDeleteItem()' 함수 호출
+            let itemDiv = document.getElementById("itemList");
+            itemDiv.appendChild(newItem);
+        }
+
+
+        // 삭제
+        function fnDeleteItem(cnt){
+
+            let item = document.getElementById("item" + cnt);
+            if(item !== null) {
+                item.parentNode.removeChild(item);
+        }
+        }
+
+        //3초후 이미지가 뜸
+        function fn3sImage(){
+            let container = document.querySelector(".container");
+            // container.innerHTML = /* html */ `<img src='./hero2.png' />`;
+            let e_img = document.createElement("img");
+            e_img.src = "./hero2.png";
+            container.append(e_img);
+            
+        }
+    </script>
+</head>
+<body onload="setTimeout(fn3sImage,3000);"> <!-- setTimeout(함수명,초)-->
+    <input type="button" value="추가" onclick="fnAppendItem()" />
+    <div id="itemList"></div>
+    <hr/>
+    <div class="container">
+        <h2>image Loading...</h2>
+        3초후에 이미지가 로드됩니다.
+    </div>
+</body>
+</html>

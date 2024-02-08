@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fnLoad(){
+            const root = document.documentElement;
+            console.log(root.nodeName); // HTML
+            console.log(root.nodeValue); // null,  태그사이에 있는 텍스트
+            console.log(root.nodeType); // 1 = 태그(Ele) 타입을 숫자로 환산
+            console.log("-----------------------------------------------")
+
+            const first = root.firstChild;
+            console.log(first.nodeName); // head
+            console.log(first.nodeValue); // null
+            console.log(first.nodeType); // 1
+
+            console.log(root.lastChild.nodeName); // body
+            console.log(root.lastChild.nodeValue); // null
+            console.log(root.lastChild.nodeType); // 1
+            console.log("-----------------------------------------------")
+
+            const body = document.documentElement.lastChild;
+            //let span = body.firstChild;
+            //let span = body.firstElementchild;
+            let span = document.getElementById("a");
+            console.log(span.nodeName); 
+            //console.log(span.firstElementchild);
+
+            console.log(span.nodeValue);
+            console.log(span.nodeType);  // 1
+            console.log("-----------------------------------------------")
+
+            console.log(span.firstChild); // "a"
+            console.log(span.firstChild.nodeName); // #text
+            console.log(span.firstChild.nodeValue); // aa
+            console.log(span.firstChild.nodeType); // 3
+            console.log("-----------------------------------------------")
+
+            console.log(span.nextSibling.nextSibling.nodeName); // <p>
+            console.log(span.nextSibling.nextSibling.nodeValue); // null
+            console.log(span.nextSibling.nextSibling.nodeType); // 1
+            console.log("-----------------------------------------------")
+
+            console.log(document.getElementsByTagName('p')); 
+            console.log(document.getElementsByTagName('p').length); //.length 갯수
+            console.log(document.getElementsByTagName("p").item(1).nodeName); // p
+            console.log(document.getElementsByTagName("p").item(0).textContent); // 진하게testb입니다.
+            console.log(document.getElementsByTagName("p").item(1).nodeType); // 1
+            console.log("-----------------------------------------------")
+
+            console.log(span.getAttribute("id"));
+
+            // name속성 가져오기
+            let spanList = document.getElementsByTagName("span");
+            for(let i=0; i<spanList.length; i++){
+                let sp = spanList.item(i);
+                console.log(`${(i+1)} 번째 span name은 
+                    ${sp.getAttribute('name')}이다.`);
+            }
+
+            
+
+        }
+    </script>
+</head>
+<body onload="fnLoad();">
+    <span id="a" name="span1">aa</span>
+    <p>
+        <b>진하게</b>test<span id="b" name="span2">b입니다.</span>
+    </p>
+    <div>
+        <p>p!</p> <span id="'c" name="span3"></span>
+    </div>
+</body>
+</html>

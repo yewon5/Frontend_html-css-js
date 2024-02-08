@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./../JS/log.js"></script>
+    <script>
+        
+        function fnload(){
+            log("첫번째 결과");
+            log("첫번째 결과");
+            log("첫번째 결과");
+        }
+
+        function fnCall1(){
+            log("fnCall1 함수가 호출됨.")
+        }
+
+        function fnCall2(){
+            log("fnCall2 함수가 호출됨.")
+        }
+
+        function fnCall3(ev){ //ev 매개변수. 이벤트 소스를 가져옴
+            log("fnCall3 함수가 호출됨.")
+            log(ev.target) //target 이벤트 소스
+            log(ev.id)
+            log(ev.type) //어떤 이벤트가 발생했는지
+            console.log(ev.target) //target 이벤트 소스
+            console.log(ev.id)
+            console.log(ev.type)
+        }
+
+         fnCall3 =
+
+
+
+        //앞으로 body태그에서 함수를 호출하지 않고 script에서 호출한다.
+        window.onload = function() { //무명함수. 콜백함수. onload될때 호출됨
+            let btn = document.querySelector("button");
+            //btn.addEventListener("click", fnCall1, false); // 이버튼에 클릭이라는 이벤트 등록
+            //btn.addEventListener("click", fnCall2, false);
+
+            btn.onclick = fnCall1 //더 간단하게 호출하는 방법.
+            btn.onclick = fnCall2
+
+
+            btn.removeEventListener("click", fnCall1, false); // fnCall1 호출 취소
+
+            let btn2 = document.getElementById("btn2");
+            //btn2.addEventListener("click", fnCall3, false);
+
+            //위의 코드를 화살표 함수로 만들기.
+            btn2.addEventListener("click", (ev) =>{
+                log(ev.target) //target 이벤트 소스
+            log(ev.id)
+            log(ev.type) //어떤 이벤트가 발생했는지
+            console.log(ev.target) //target 이벤트 소스
+            console.log(ev.id)
+            console.log(ev.type)
+        }, false);
+        
+            //버튼2 클릭 후 키보드 자판 누르면 출력
+            btn2.addEventListener('keydown', (ev)=>{ 
+                log(ev.key);
+            }, false);
+
+            //버튼2 위에서 마우스 휠 움직이면 콘솔창에 출력
+            btn2.addEventListener('wheel', (ev)=>{
+                console.log(ev);
+            }, false);
+    
+
+
+    }
+    </script>
+</head>
+<body>
+    <button>버튼</button>
+    <button id="btn2">버튼2</button>
+
+    <br><br>
+    <div id="debugConsole" style="border: 1px solid skyblue"></div>
+</body>
+</html>

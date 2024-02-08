@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 짝수 홀수
+        let num = window.prompt("값을 입력:"); 
+        if(num % 2 === 0)
+            console.log("짝수");
+        if(num % 2 !== 0)
+            console.log("홀수");
+        */
+
+        /*
+        let num = window.prompt("값을 입력:"); 
+        if(num % 2 === 0)
+            console.log("짝수"); // 한줄일땐 {} 생략
+        else(num % 2 !== 0)
+            console.log("홀수");
+        */
+
+        /*
+        let avg = 40;
+
+        if(avg >= 90)
+            console.log("A학점");
+        else if(avg>=80) 
+            console.log("B학점");
+        else if(avg >= 70)
+            console.log("C학점");
+        else if(avg >= 60)
+            console.log("D학점");
+        else 
+            console.log("F학점");
+
+        // 위의 학점 구하기를 switch문으로 작성
+        */
+
+        /*
+        let avg = 70;
+
+        switch(true){
+            case avg >= 90:
+                text = 'A학점';
+                break;
+            case avg >= 80:
+                text = 'B학점';
+                break;
+            case avg >= 70:
+                text = 'C학점';
+                break;
+            case avg >= 60:
+                text = 'D학점';
+            default:
+                text = 'F학점';
+        }
+
+        console.log(text);
+        */
+
+        let avg = 85;
+
+        switch(parseInt(avg/10)){ // parseInt 정수로 만들어 줌
+            case 9:
+                text = 'A학점';
+                break;
+            case 8:
+                text = 'B학점';
+                break;
+            case 7:
+                text = 'C학점';
+                break;
+            case 6:
+                text = 'D학점';
+                break;
+            default:
+                text = 'F학점';
+        }
+
+        console.log(text);
+
+        //-----------------------------------------------------------------------
+         
+        // 사과일때 가격은 1000원, 바나나일때 가격은 1500원, 망고일때, 2000원, 그외 0원
+        // 과일과 가격을 출력하시오
+        let fruit = 'banana';
+        let price = 0;
+
+        /*    
+        if(fruit == 'apple')
+            price = 1000;    
+        else if(fruit == 'banana')
+            price = 1500;
+        else if(fruit == 'mango')
+            price = 2000;
+        else 
+            price = 0;
+
+        console.log(`${fruit} 의 가격은 ${price}원이다.`);
+        // let str3 = `Hello ${str2}`;  ` ${}` 백틱을 이용하면 다른 변수를 불러와서 사용할 수 있다
+        */
+
+        // fruit=case=apple 같다는 전제, 크다 작다는 안됨. 그래서 조건문이 올 수 없고 결과값만
+        switch(fruit) { 
+            case 'apple':
+                price = 1000; 
+                break; // break가 없으면 사과를 입력해도 0원이 나옴
+            case 'banana':
+                price = 1500;
+                break;
+            case 'mango':
+                price = 2000;
+                break;
+            default:
+                price = 0;
+        } 
+
+        console.log(`${fruit} 의 가격은 ${price}원이다.`);
+
+
+        //-----------------------------------------------------------------------
+
+        let num1 = 2;
+        let num2 = 8;
+        let num3 = 5;
+
+        if(num1 > num2){
+            if(num1 > num3){
+                console.log('num1이 제일 크다');
+            }
+            else{
+                console.log("num3가 제일 크다");
+            }
+        }
+        else{
+            if(num2 > num3){
+                console.log('num2이 제일 크다');
+            }
+            else{
+                console.log("num3가 제일 크다");
+            }
+        }
+
+        //-----------------------------------------------------------------------
+
+        let id = window.prompt("ID:");
+        let pw = window.prompt("password:");
+
+        if(id === 'tiger'){
+            if(pw === '1111'){
+                console.log('로그인 되었습니다');
+            }
+            else{
+                console.log('비밀번호 틀렸습니다');
+            }
+        }
+        else{
+            if(pw === '1111'){
+                console.log('아이디가 틀렸습니다');
+            }
+            else{
+                console.log('아이디/비밀번호가 틀립니다');
+            }
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
