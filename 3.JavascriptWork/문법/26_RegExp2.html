@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const str = `
+010-1234-5678
+thesecond@gmail.com
+Hello world!
+https://www.omdbapi.com/?apikey=7035c60c&s=frozen
+The quick brown fox jumps over the lazy dog.
+hello@naver.com
+http://localhost:1234
+동해물과 백두산이 마르고 닳도록
+abbcccddddeeeee___`;
+
+            console.log(str.match(/^h.../gm)); //(3) ['http', 'hell', 'http']
+            console.log(str.match(/^h.../gmi)); //(4) ['Hell', 'http', 'hell', 'http']
+            console.log('---------------------------------------');
+            
+            //\를 사용함으로써 패턴표현식 기능을 해제하고 .을 찾아준다
+            console.log(str.match(/\.com/g)); //(3) ['.com', '.com', '.com']
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -330,16 +330,73 @@
     8) 마우스와 포인터 이벤트 //태그나 객체 앞에는 on붙여줘야 한다.
         click, dblclick, mousedown, mouseup, mouseenter, mouseleave, mousemove, contextmenu, wheel
 
-    9) 키보드 이벤트
+    9) 키보드 이벤트 #23_Event7 #24_Event8
         keydown, keyup, focus, blur, input, change, submit, reset
 
+    10) 디스패치 이벤트 : dispatchEvent
+        - 강제로 이벤트를 발생시킬 때 사용
     
-(10) 정규 표현식
+(10) 모듈 #Module Test
+    - js파일들끼리 데이터를 내보내기와 가져오기를 하는 방법
+    - export 내보내기, import 가져오기
+    - <script type='module' src="js"> ★module 불러오기 잊지말자★
 
-(11) 모듈
+(11) 정규 표현식 (Regular Expression) ★★★★★
+    1) 정의 : 문자열에서 특정 문자 조합을 찾기 위한 패턴 
+
+    2) 용도
+        - 문자 검색(Search)
+        - 문자 대체(Replace)
+        - 문자 추출(Extract)
+
+    3) 사용법
+        - 객체 생성 방식
+            new RegExp('패턴 표현식', 플래그(옵션)) /패턴을 찾기 위한 표현식
+            - 플래그
+                g : 모든 문자와 일치(global)
+                i : 영어 대소문자 구별하지 않고 일치(ignore case)
+                m : 여러 줄 일치(multi), 각각의 줄을 시작과 끝으로 인식 (전체줄 인식)
+        - 리터럴 방식
+            /패턴 표현식/플래그 
+
+    4) API
+        패턴 표현식.test(문자열) : 일치 여부 확인
+        문자열.match(패턴 표현식) : 일치하는 문자의 배열을 반환 /검색+추출
+        문자열.replace(패턴 표현식, 대체문자) : 일치하는 문자를 대체
+
+    5) 패턴 표현식
+        ^ab : 줄(line) 시작에 있는 ab와 일치 → abcd 가능 zxcv 불가능
+        ab$ : 줄(line) 끝에 있는 ab와 일치
+        . : 임의의 한 문자와 일치 → a.b : aab, abb, acb, adb 모든 문자 대체
+        a | b : a 또는 b와 일치
+        ab? : b가 없거나 b와 일치 (물음표 앞에 있는 문자)
+
+        {n} : n개 연속 일치 → a{3} : aaa
+        {n,} : n개 이상 연속 일치 → a{3,} : aaa, aaaa, aaaaa, ...
+        {n,m} : n개 이상 m개 이하 연속 일치 → a{3,5} : aaa, aaaa, aaaaa
+        + : 1회 이상 연속 일치 → a+ : a, aa, aaa, ... /{1,}이것과 같음
+        * : 0회 이상 연속 일치 → a* : ' ', a, aa, aaa, ...
+
+        [ab] : a 또는 b → 강[남북]구 : 강남구, 강북구
+        [a-z] : a부터 z사이의 문자 구간 일치(소문자) ASCII코드
+        [A-Z] : A부터 Z사이의 문자 구간 일치(대문자)
+        [0-9] : 0부터 9사이의 문자 구간 일치(숫자)
+        [가-힣] : 한글의 모든 구간 일치(한글)
+        [a-zA-Z] : 대소문자 섞어서 알파벳만 일치
+        [^ab] : ab를 제외한 모든 문자 구간 일치(^를 맨 앞에 사용 시)
+
+        \w : word(63개 문자 : 대소문자 52개 + 숫자 10개 + _) 일치 → a\wb
+        \W : \w에 해당하지 않는 나머지 문자에 일치
+        \d : digit(숫자)에 일치 → [0-9]와 같음
+        \s : space, tap 등에 일치하는
+        \S : \s에 해당하지 않는 나머지 문자에 일치
+        \ : 특수 기능 해제(escape)
+
+        (?:) : 그룹 지정
+        (?=) : 앞쪽 일치
+        (?<=) : 뒤쪽 일치
+        
+
+        참고사이트 : https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
 
 (12) JQuery
-
-        
-        
-

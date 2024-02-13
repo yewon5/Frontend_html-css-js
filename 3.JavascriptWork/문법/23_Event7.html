@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            padding: 10px;
+            border: 2px solid skyblue; /* transparent 투명하게 */
+            display: flex; /* 수평정렬 */
+            flex-wrap: wrap;
+            gap: 6px; /* 여백 */
+        }
+
+        form.active {
+            border-color: orange;
+        }
+    </style>
+
+    <script>
+        window.onload = function() {
+            const input1 = document.querySelector("input");
+
+/*
+             input1.addEventListener("keydown", (ev)=>{
+                 console.log(ev.key);
+            });
+
+            input1.addEventListener("keyup", (ev)=>{
+                console.log(ev.key);
+            });
+*/
+
+            //엔터키를 눌렀을 때 입력된다.
+            input1.addEventListener("keydown", (ev)=>{
+                if(ev.key === 'Enter'){ //Enter보단 ASCII 코드로 비교하는게 정확하다. ev.keycode == 13
+                    //console.log(ev.target.value);
+                    console.log(input1.value);
+                }
+            });
+            
+            const f = document.querySelector("form"); //form테두리 색이 바뀌는 이벤트
+            const inputs = document.forms[0].querySelectorAll("input"); //form이 여러 개일 수도 있으니 배열로 접근
+
+            inputs.forEach(param => { //첫번째 input태그를 param한테
+                param.addEventListener("focus", ()=>{
+                    f.classList.add('active') //<body>안에 <form class="active">속성을 넣은 것과 같음.
+                })
+
+                param.addEventListener("blur", ()=>{ //<form class="active"> 없애자
+                    f.classList.remove('active');
+                })
+
+                //param.addEventListener("input", (ev)=>{ //input 내용이 변경됐을 때 바로 나타남
+                //    console.log(ev.target.value);
+                //})
+
+                param.addEventListener("change", (ev)=>{ //change 포커스가 이동했을때 나타남
+                    console.log(ev.target.value);
+                })
+            }); 
+
+            const txtIn = document.getElementById('txtIn');
+
+            txtIn.addEventListener('keydown', ev=>{ //텍스트창에 문자를 입력하면
+                document.getElementById('txtkeyCode').value = ev.keyCode; //ASCII코드 값 출력
+                document.getElementById('txtCtrl').value = ev.ctrlKey; //true/false 값 출력
+                document.getElementById('txtShift').value = ev.shiftKey; //true/false 값 출력
+            });
+        }
+    </script>
+</head>
+<body>
+    <input type="text" />
+    <hr/>
+    <form >
+        <fieldset> <!-- 테두리를 만들어 준다. -->
+            <legend>로그인</legend>
+        <input type="text" placeholder="ID">
+        <input type="password" placeholder="pw"/>
+        <button type="submit">전송</button>
+        <button type="submit">취소</button>
+        </fieldset>    
+    </form>
+    <hr/>
+    키보드 입력 : <input type="text" id="txtIn" /> 
+    <br><br>
+    키코드 값 : <input type="text" id="txtkeyCode" readonly/>
+    <br><br>
+    ctrl 값 : <input type="text" id="txtCtrl" readonly/>
+    <br><br>
+    shift 값 : <input type="text" id="txtShift" readonly/>
+</body>
+</html>

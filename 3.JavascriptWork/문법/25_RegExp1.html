@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const str = `
+010-1234-5678
+thesecond@gmail.com
+Hello world!
+https://www.omdbapi.com/?apikey=7035c60c&s=frozen
+The quick brown fox jumps over the lazy dog.
+hello@naver.com
+http://localhost:1234
+동해물과 백두산이 마르고 닳도록
+abbcccddddeeeee`;
+
+        /* 객체 생성 방식 */
+        //const regexp = new RegExp('the', '');
+        //const regexp = new RegExp('the', 'g'); //the 문자 일치
+        //const regexp = new RegExp('the', 'gi'); //대소문자 구분 없이
+
+        /* 리터럴 방식 */
+        //const regexp = /the/gi;
+
+        //console.log(str.match(regexp)); //str데이터 안에서 the라는 문자를 찾는다.
+
+        //-------------------------------------------------
+
+        /* API */
+        //const regexp = /fox/gi;
+
+        //console.log(regexp.test(str)); //true str데이터 안에 fox라는 단어가 있는지.
+        //console.log(str.match(regexp));
+        //console.log(str.replace(regexp, 'cat'));
+
+        /* 플래그 */
+        console.log(str.match(/the/));
+        console.log(str.match(/the/g));
+        console.log(str.match(/the/gi));
+        console.log(str.match(/백두산/gi));
+        console.log(str.match(/\.$/gim)); //$문자열끝에 .마침표가 있는지
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
