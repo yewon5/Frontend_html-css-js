@@ -6,7 +6,7 @@
     <title>Document</title>
     <script>
         const str = `
-010-1234-5678
+*010-1234-5678*
 thesecond@gmail.com
 Hello world!
 https://www.omdbapi.com/?apikey=7035c60c&s=frozen
@@ -22,6 +22,70 @@ abbcccddddeeeee___`;
             
             //\를 사용함으로써 패턴표현식 기능을 해제하고 .을 찾아준다
             console.log(str.match(/\.com/g)); //(3) ['.com', '.com', '.com']
+            console.log(str.match(/\.com$/g)); //null m이 없을 경우 마지막 ___언더바만 인식한다.
+            console.log(str.match(/\.com$/gm)); //(2) ['.com', '.com'] m : 한줄 한줄 전체 줄 인식
+            console.log(str.match(/...\.com$/gm)); //(2) ['ail.com', 'ver.com']
+
+            console.log(str.match(/fox|dog/g)); //(2) ['fox', 'dog']
+            console.log(str.match(/fox|dog|\.com/gm)); //(5) ['.com', '.com', 'fox', 'dog', '.com']
+            console.log(str.match(/https?/g)); //(2) ['https', 'http'] ? : s가 올 수도 있고 없고
+
+            console.log(str.match(/\d/g)); //모든 숫자를 찾아줌
+            console.log(str.match(/\d{4}/g)); //(/\d\d\d\d/g)와 같음
+            console.log(str.match(/e{3}/g)); //['eee'] e가 3자리 연속적으로 일치하는 단어
+            console.log(str.match(/\d{3,9}/g)); //3자리 이상 9자리 이하의 연속된 숫자. 콤마는 범위이고 스페이스바 주의
+            console.log(str.match(/\d{1,}/g));
+            console.log(str.match(/\d+/g)); //위의 코드와 같음. 1자리 이상 찾기
+            console.log('---------------------------------------');
+
+            console.log(str.match(/m[ab]/g)); //['ma']
+            console.log(str.match(/[a-z]/g)); //134개의 모든 단어.
+            console.log(str.match(/[a-z]{1,}/g)); //29개의 1글자 이상의 한 단어.
+            console.log(str.match(/[a-zA-Z가-힣0-9]{1,}/g)); //1글자 이상의 영어단어, 한글, 숫자까지 찾는다.
+            console.log(str.match(/[^a-zA-Z가-힣0-9]{1,}/g)); //^가 [ ]안에 들어오면 제외. 특수기호만 찾는다.
+            console.log('---------------------------------------');
+
+            console.log(str.match(/\w+/g)); //+ 1자리 이상 단어, 숫자, 언더바를 찾는다.
+            console.log(str.match(/\W+/g)); //위의 문자를 제외한 한글 포함 나머지 특수 문자. 
+            console.log(str.match(/\s+/g)); //공백
+            console.log(str.match(/\S+/g)); //공백을 제외한 나머지 문자.(특수문자포함)
+            console.log('---------------------------------------');
+
+            console.log(str.match(/(https?:\/\/\w+\.?)/g)); // \.? url에 점 있없.
+            console.log(str.match(/https?:\/\/(?:\w+\.?)+\/?/g)); //(?:\w+\.?) 그룹으로 묶어 주면 2개의 URL을 찾는다. \/? com뒤에 /까지 찾는다.
+            console.log(str.match(/.+(?=과)/g)); //['동해물'] 과 앞의 문자
+            console.log(str.match(/(?<=과).+/g)); //[' 백두산이 마르고 닳도록'] 과 뒤에 오는 모든 문자.
+            console.log(str.match(/.+(?<=과).+/g)); //['동해물과 백두산이 마르고 닳도록']
+            console.log('---------------------------------------');
+
+            //전화번호 검색 2가지 방법으로
+            console.log(str.match(/\d+\-\d+\-\d+/g));
+            console.log(str.match(/010+\-\d+\-\d+/g)); 
+            console.log(str.match(/\d+\W+?\d+\W+?\d+/g));
+
+            //이메일 2개 검색
+            console.log(str.match(/.+(?<=\@).+/g));
+
+            
+
+            //소영 전화번호
+            console.log(str.match(/\d+\-\d+\-\d+/g));
+            console.log(str.match(/\d{3}\-\d{4}\-\d{4}/g));
+            console.log(str.match(/\d{1,}\-\d{1,}\-\d{1,}/g));
+
+            //소영 이메일
+            console.log(str.match(/\w+\@\w+\.com/gm));
+            console.log(str.match(/.+(?=\@)\@(?<=\@).+/g));
+
+
+            //민재 전화번호
+            console.log(str.match(/\d+(?:-\d+)+/g));
+            console.log(str.match(/\d+\W+?\d+\W+?\d+/g));
+
+            //민재 이메일
+            console.log(str.match(/\w+@\w+\.com/g));
+            console.log(str.match(/[a-z]+@[a-z]+\.com/g));
+
     </script>
 </head>
 <body>

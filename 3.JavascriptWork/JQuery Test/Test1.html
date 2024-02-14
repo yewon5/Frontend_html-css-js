@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- https://code.jquery.com/jquery-3.7.1.min.js 
+    다른 이름으로 저장 후 모듈 파일 불러오기. -->
+    <!-- <script src="./jquery-3.7.1.min.js"></script> js -->
+
+
+    <!-- CDN 이용 방법 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    
+    <script>
+        /*
+        window.onload =function(){
+            const myElement = document.getElementById("id01");
+            document.getElementById("demo").innerHTML = "The text from the id01 paragraph is: " + myElement.innerHTML;
+        }
+        */
+
+        $(document).ready(function() { //jQuery는 $로 시작한다.
+            const myElements = $("#id01");
+            $("#demo").text("The text from the id01 paragraph is: " + myElements[0].innerHTML); //myElements[0] JS 접근했기때문에 innerHTML 써야한다.
+        });
+
+        //https://www.w3schools.com/js/js_jquery_selectors.asp
+        //Finding HTML Element by Id
+    </script>
+</head>
+<body>
+    <h2>Finding HTML Elements by Id</h2>
+<p id="id01">Hello World!</p>
+<p id="id02">Hello Sweden!</p>
+<p id="id03">Hello Japan!</p>
+
+<p id="demo"></p>
+    
+</body>
+</html>
